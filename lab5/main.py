@@ -119,6 +119,7 @@ def weiler_atherton(subject_vertices, clip_vertices):
             while current_vertex.type != 'intersection':
                 clipped.append(current_vertex)
                 exit_index += offset
+                exit_index %= len(clip_vertices)
                 current_vertex = clip_vertices[exit_index]
 
             if exit_index % len(clip_vertices) == entry_index:
@@ -231,15 +232,15 @@ def main():
     if not glfw.init():
         return
 
-    window = glfw.create_window(size, size, "Draw Polygons", None, None)
+    window = glfw.create_window(size, size, "Lab5", None, None)
     if not window:
         glfw.terminate()
         return
 
     glfw.make_context_current(window)
     glfw.set_mouse_button_callback(window, mouse_button_callback)
-    glfw.set_key_callback(window, key_callback)  # Set the key callback
-    glClearColor(1.0, 1.0, 1.0, 1.0)  # White background
+    glfw.set_key_callback(window, key_callback)
+    glClearColor(1.0, 1.0, 1.0, 1.0)
 
     while not glfw.window_should_close(window):
         display()
