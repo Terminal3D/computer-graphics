@@ -204,12 +204,11 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
     mode = GL_POLYGON if fill_polygons else GL_LINE_LOOP
 
-    # Draw each polygon
     for i, polygon in enumerate(polygons):
         if i % 2 == 0:
-            glColor3f(1, 0, 0)  # Red for even polygons
+            glColor3f(1, 0, 0)
         else:
-            glColor3f(0, 0, 1)  # Blue for odd polygons
+            glColor3f(0, 0, 1)
 
         glBegin(mode)
         for vertex in polygon:

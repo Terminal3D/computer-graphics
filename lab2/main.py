@@ -10,6 +10,11 @@ beta = 0.0
 size = 0.7
 fill = True
 
+position_y = 1.0  # начальная высота
+velocity_y = 0.0  # начальная скорость
+acceleration_y = -9.8  # ускорение свободного падения (м/с^2)
+time_step = 0.016  # время обновления кадра примерно 60 FPS
+
 
 def main():
     if not glfw.init():
